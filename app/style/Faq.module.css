@@ -1,0 +1,31 @@
+.card {
+  border-radius: 1.25rem; /* ligeramente más grande */
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* sombra más profunda */
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem; /* más grande */
+  text-align: left;
+  background-color: #f3f4f6;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #e5e7eb;
+}
+
+.answer {
+  padding: 1.5rem; /* más grande */
+  background-color: white;
+  color: #374151; /* gray-700 */
+  border-top: 1px solid #e5e7eb;
+  font-size: 1.125rem; /* text-lg */
+}
