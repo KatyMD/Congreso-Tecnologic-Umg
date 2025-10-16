@@ -84,7 +84,7 @@ export default function ResultadoGanadores() {
                             <p className="flex items-center gap-2 text-sm font-semibold text-yellow-600 mb-1">
                                 <FaMedal className="text-yellow-600 text-lg" />
                                 {g.PUESTO}
-                            </p>Ñ
+                            </p>
                             <p className="text-sm font-semibold text-gray-600">
                                 {g["NOMBRE ACTIVIDAD"]}
                             </p>
