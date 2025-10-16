@@ -78,16 +78,6 @@ export default function InscripcionActividad() {
             return null;
         }
     };
-  const fetchWithAuth = (url, options = {}) => {
-    const token = getToken();
-    return fetch(url, {
-      ...options,
-      headers: {
-        ...options.headers,
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  };
 
 
     // INSCRIBIRSE A UNA ACTIVIDAD
@@ -101,7 +91,7 @@ export default function InscripcionActividad() {
         }
 
         try {
-            const res = await fetchWithAuth("https://apicongresotecnologico-htc2hkewedh6exe8.canadacentral-01.azurewebsites.net/Actividades/Inscripcion", {
+            const res = await fetch("https://apicongresotecnologico-htc2hkewedh6exe8.canadacentral-01.azurewebsites.net/Actividades/Inscripcion", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
