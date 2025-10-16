@@ -78,6 +78,16 @@ export default function InscripcionActividad() {
             return null;
         }
     };
+  const fetchWithAuth = (url, options = {}) => {
+    const token = getToken();
+    return fetch(url, {
+      ...options,
+      headers: {
+        ...options.headers,
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  };
 
 
     // INSCRIBIRSE A UNA ACTIVIDAD
