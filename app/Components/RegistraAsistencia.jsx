@@ -69,7 +69,7 @@ export default function RegistrarAsistencias() {
 
             const data = await res.json();
 
-            // Mostrar alerta según respuesta de la API
+            // Mostrar alerta 
             if (data.Estado) {
                 mostrarAlerta(data.Mensaje, "success");
                 
