@@ -6,6 +6,7 @@ import Alert from "@mui/material/Alert";
 
 export default function InscripcionActividad() {
     const [actividades, setActividades] = useState([]);
+    const getToken = () => sessionStorage.getItem("token");
 
     const [alerta, setAlerta] = useState({
         open: false,
@@ -78,7 +79,7 @@ export default function InscripcionActividad() {
             return null;
         }
     };
-    
+
     const fetchWithAuth = (url, options = {}) => {
         const token = getToken();
         return fetch(url, {
