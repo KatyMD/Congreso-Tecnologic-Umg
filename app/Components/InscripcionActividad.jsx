@@ -78,11 +78,21 @@ export default function InscripcionActividad() {
             return null;
         }
     };
+    
+    const fetchWithAuth = (url, options = {}) => {
+        const token = getToken();
+        return fetch(url, {
+            ...options,
+            headers: {
+                ...options.headers,
+                Authorization: `Bearer ${token}`,
+            },
+        });
+    };
 
 
     // INSCRIBIRSE A UNA ACTIVIDAD
     const inscribirse = async (idActividad) => {
-        const token = sessionStorage.getItem("token");
         const id = obtenerSubDelToken(token);
 
         if (!token || !id) {
@@ -91,12 +101,9 @@ export default function InscripcionActividad() {
         }
 
         try {
-            const res = await fetch("https://apicongresotecnologico-htc2hkewedh6exe8.canadacentral-01.azurewebsites.net/Actividades/Inscripcion", {
+            const res = await fetchWithAuth("https://apicongresotecnologico-htc2hkewedh6exe8.canadacentral-01.azurewebsites.net/Actividades/Inscripcion", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     idActividad,
                     idUsuario: parseInt(id),
@@ -140,7 +147,7 @@ export default function InscripcionActividad() {
                                         <p>
                                             <strong>Fecha:</strong> {act.FECHA.split(" ")[0]}
                                         </p>
-                                        
+
                                         <p>
                                             <strong>Hora:</strong> {formatHora(act["HORA INICIO"])} -{" "}
                                             {formatHora(act["HORA FIN"])}
