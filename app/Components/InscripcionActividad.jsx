@@ -94,6 +94,7 @@ export default function InscripcionActividad() {
 
     // INSCRIBIRSE A UNA ACTIVIDAD
     const inscribirse = async (idActividad) => {
+        const token = getToken();
         const id = obtenerSubDelToken(token);
 
         if (!token || !id) {
