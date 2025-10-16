@@ -125,6 +125,7 @@ export default function InfoUsers() {
       const data = await res.json();
 
       await cargarUsuarios();
+
       mostrarAlerta(data.Mensaje, "success");
     } catch (err) {
       mostrarAlerta("Error al actualizar: " + err.message, "error");
@@ -164,10 +165,17 @@ export default function InfoUsers() {
 
       if (!res.ok) throw new Error(await res.text());
       const data = await res.json();
+      if (data.Estado) {
+        mostrarAlerta(data.Mensaje, "success");
+        cerrarModal();
+        await cargarUsuarios();
 
-      cerrarModal();
-      await cargarUsuarios();
-      mostrarAlerta(data.Mensaje, "success");
+      } else {
+
+        mostrarAlerta(data.Mensaje, "warning");
+
+      }
+
     } catch (err) {
       mostrarAlerta("Error al actualizar tipo: " + err.message, "error");
     }
@@ -181,7 +189,7 @@ export default function InfoUsers() {
   }
 
   return (
-    <div className="bg-white relative overflow-x-auto px-4 py-6"style={{ minHeight: '100vh', backgroundColor: 'white' }}>
+    <div className="bg-white relative overflow-x-auto px-4 py-6" style={{ minHeight: '100vh', backgroundColor: 'white' }}>
       <h2 className="text-2xl font-bold mb-4 text-center text-blue-900">USUARIOS</h2>
 
       {/* Barra de búsqueda y filtro  */}
