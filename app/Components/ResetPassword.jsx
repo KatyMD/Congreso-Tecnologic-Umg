@@ -57,7 +57,7 @@ export default function ResetPassword() {
       correo:email, 
       contraseña:password };
 
-    fetch("https://localhost:44335/Usuario/ReinicioContrasena", { 
+    fetch("https://apicongresotecnologico-htc2hkewedh6exe8.canadacentral-01.azurewebsites.net/Usuario/ReinicioContrasena", { 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
