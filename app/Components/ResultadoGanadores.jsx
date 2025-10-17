@@ -23,7 +23,7 @@ export default function ResultadoGanadores() {
         setAlerta((prev) => ({ ...prev, open: false }));
     };
 
-    // 🔹 Cargar lista de ganadores
+    //  lista de ganadores
     useEffect(() => {
         const fetchGanadores = async () => {
             try {
